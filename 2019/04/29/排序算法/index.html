@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="#冒泡排序冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。">
+<meta name="description" content="冒泡排序冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。">
 <meta name="keywords" content="sort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法">
 <meta property="og:url" content="http://yoursite.com/2019/04/29/排序算法/index.html">
 <meta property="og:site_name" content="cjcccccc">
-<meta property="og:description" content="#冒泡排序冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。">
+<meta property="og:description" content="冒泡排序冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T11:10:16.686Z">
+<meta property="og:updated_time" content="2019-04-29T11:28:27.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序算法">
-<meta name="twitter:description" content="#冒泡排序冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。">
+<meta name="twitter:description" content="冒泡排序冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。">
 
 
 
@@ -320,23 +320,26 @@
       
 
       
-        <p>#冒泡排序<br>冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。</p>
-<p>平均时间复杂度： O(n2)</p>
-<p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(int i = numArr.length;i&gt;=0;i--)&#123;</span><br><span class="line">            for(int j = 0;j &lt;i;j++)&#123;</span><br><span class="line">                if(numArr[j] &gt; numArr[j+1])&#123;</span><br><span class="line">                    int tem = numArr[j];</span><br><span class="line">                    numArr[j] = numArr[j+1];</span><br><span class="line">                    numArr[j+1] = tem;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。</p>
+<p>平均时间复杂度： O(n2)<br><a id="more"></a><br>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(int i = numArr.length;i&gt;=0;i--)&#123;</span><br><span class="line">            for(int j = 0;j &lt;i;j++)&#123;</span><br><span class="line">                if(numArr[j] &gt; numArr[j+1])&#123;</span><br><span class="line">                    int tem = numArr[j];</span><br><span class="line">                    numArr[j] = numArr[j+1];</span><br><span class="line">                    numArr[j+1] = tem;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
 <p>由于两个相邻元素相等时，没有交换位置，故冒泡排序是一种稳定的排序算法。</p>
-<p>#插入排序<br>插入排序，是讲待排序的元素插入到已排好序的元素列中，其思想与冒泡排序类似，我们从元素列的第二项开始与第一项比较，排好序后，取第三项进行比较，排序，再取第四项，以此类推，把每一项与前面的有序元素列比较，比较至当前位置的前一项比待排序大，比后一项小时，进行插入操作，直至比较完整个元素列。</p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>插入排序，是讲待排序的元素插入到已排好序的元素列中，其思想与冒泡排序类似，我们从元素列的第二项开始与第一项比较，排好序后，取第三项进行比较，排序，再取第四项，以此类推，把每一项与前面的有序元素列比较，比较至当前位置的前一项比待排序大，比后一项小时，进行插入操作，直至比较完整个元素列。</p>
 <p>平均时间复杂度： O(n2)</p>
 <p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 1,l = numArr.length ; i&lt;l ;i++)&#123;</span><br><span class="line">           for (int j=i;j&gt;0;j--)&#123;</span><br><span class="line">               if (numArr[i] &lt; numArr[j-1])&#123;</span><br><span class="line">                   int tem = numArr[j-1];</span><br><span class="line">                   numArr[j-1] = numArr[i];</span><br><span class="line">                   numArr[i] = tem;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
 <p>插入排序也没有相等元素的交换位置，故也是一种稳定的排序算法。</p>
-<p>#选择排序<br>选择排序的思想是，在每一趟从待排序的元素列中选择最小（或最大）的一个元素作为首元素，然后去除当前元素，在剩下的元素找到最小（或最大）的元素作为剩下元素列的首元素，直到所有元素排完为止。</p>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>选择排序的思想是，在每一趟从待排序的元素列中选择最小（或最大）的一个元素作为首元素，然后去除当前元素，在剩下的元素找到最小（或最大）的元素作为剩下元素列的首元素，直到所有元素排完为止。</p>
 <p>平均时间复杂度： O(n2)</p>
 <p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0;i&lt;numArr.length;i++)&#123;</span><br><span class="line">            minIndex = i;</span><br><span class="line">            for (int j = i+1;j&lt;len-1;j++)&#123;</span><br><span class="line">                if (numArr[minIndex]&gt;numArr[j])&#123;</span><br><span class="line">                    minIndex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            int tem = numArr[i];</span><br><span class="line">            numArr[i] = numArr[minIndex];</span><br><span class="line">            numArr[minIndex] =tem;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
 <p>相比于冒泡排序和插入排序，选择排序不同之处在于多了一个最小值的索引，来定位最小值所在位置，来与首元素进行交换。</p>
 <p>正因涉及到元素的交换，移动了顺序，显然，选择排序不是一种稳定的排序算法。</p>
-<p>#快速排序<br>快速排序是对冒泡排序的一种改进，回想冒泡排序，是通过前后元素的不断对比来进行排序，而快速排序的方法更巧妙，通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>快速排序是对冒泡排序的一种改进，回想冒泡排序，是通过前后元素的不断对比来进行排序，而快速排序的方法更巧妙，通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
 <p>平均时间复杂度：θ(nlogn)</p>
 <p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public void sort(int[] intArr,int low,int high)&#123;</span><br><span class="line">        int l = low,h = high;</span><br><span class="line">        int povit = intArr[low];</span><br><span class="line">        while (l &lt; h)&#123;</span><br><span class="line">            while (l&lt; h &amp;&amp; intArr[h] &gt;= povit)&#123;</span><br><span class="line">                h--;</span><br><span class="line">            &#125;</span><br><span class="line">            while (l&lt;h &amp;&amp; intArr[l] &lt;= povit)&#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">            if (l &lt; h)&#123;</span><br><span class="line">                int tem = intArr[l];</span><br><span class="line">                intArr[l] = intArr[h];</span><br><span class="line">                intArr[h] = tem;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        if (l != low)&#123;</span><br><span class="line">            int tem = intArr[low];</span><br><span class="line">            intArr[low] = intArr[l];</span><br><span class="line">            intArr[l] = tem;</span><br><span class="line">        &#125;</span><br><span class="line">        if (low &lt; l-1)&#123;</span><br><span class="line">            sort(intArr,low,l-1);</span><br><span class="line">        &#125;</span><br><span class="line">        if (h+1 &lt;high)&#123;</span><br><span class="line">            sort(intArr,h+1,high);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 <p>快速排序是一种不稳定的排序算法。</p>
+<h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p>堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆；或者每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆。堆排序利用了堆这种数据结构。要写一个堆排序出来，通常分为两步，第一步是进行堆调整，从最后一个叶子节点的父节点开始从下至上调整至根结点，此时可保证根节点为整个堆的最大值或者最小值，将根节点与尾节点交换，再依此减小堆大小，循环此过程，最后得出来的即是有序的序列。</p>
+<p>平均时间复杂度：O(nlogn)</p>
+<p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public void sort(int [] intArr)&#123;</span><br><span class="line">    int length = intArr.length;</span><br><span class="line">    for (int i = length/2-1;i &gt;= 0;i--)&#123;</span><br><span class="line">        adjustHeap(intArr,i,length);</span><br><span class="line">    &#125;</span><br><span class="line">    for (int len = length-1;len &gt;=0;len--)&#123;</span><br><span class="line">        swap(intArr,len,0);</span><br><span class="line">        adjustHeap(intArr,0,len);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public void adjustHeap(int[] intArr,int i,int length)&#123;</span><br><span class="line">    int temp = intArr[i];</span><br><span class="line">    for (int k = 2*i+1;k &lt; length;k = 2*k+1)&#123;</span><br><span class="line">        if (k+1 &lt; length &amp;&amp; intArr[k] &lt; intArr[k+1])&#123;</span><br><span class="line">            k = k+1;</span><br><span class="line">        &#125;</span><br><span class="line">        if (temp &lt; intArr[k])&#123;</span><br><span class="line">            swap(intArr,k,i);</span><br><span class="line">            i = k;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>堆排序是一种不稳定的排序算法，不稳定在于排序过程中会有根节点与尾节点的交换，势必会影响两个相等元素的相对顺序。</p>
 
       
     </div>
@@ -427,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -479,6 +491,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入排序"><span class="nav-number">2.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择排序"><span class="nav-number">3.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速排序"><span class="nav-number">4.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#堆排序"><span class="nav-number">5.</span> <span class="nav-text">堆排序</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
