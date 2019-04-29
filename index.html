@@ -320,41 +320,23 @@
       
         
           
-            <p>冒泡排序<br>冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。</p>
+            <p>#冒泡排序<br>冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。</p>
 <p>平均时间复杂度： O(n2)</p>
-<p>核心代码：</p>
-<p>for(int i = numArr.length;i&gt;=0;i–){<br>            for(int j = 0;j &lt;i;j++){<br>                if(numArr[j] &gt; numArr[j+1]){<br>                    int tem = numArr[j];<br>                    numArr[j] = numArr[j+1];<br>                    numArr[j+1] = tem;<br>                }<br>            }<br>        }</p>
+<p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(int i = numArr.length;i&gt;=0;i--)&#123;</span><br><span class="line">            for(int j = 0;j &lt;i;j++)&#123;</span><br><span class="line">                if(numArr[j] &gt; numArr[j+1])&#123;</span><br><span class="line">                    int tem = numArr[j];</span><br><span class="line">                    numArr[j] = numArr[j+1];</span><br><span class="line">                    numArr[j+1] = tem;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
 <p>由于两个相邻元素相等时，没有交换位置，故冒泡排序是一种稳定的排序算法。</p>
-<p>插入排序<br>插入排序，是讲待排序的元素插入到已排好序的元素列中，其思想与冒泡排序类似，我们从元素列的第二项开始与第一项比较，排好序后，取第三项进行比较，排序，再取第四项，以此类推，把每一项与前面的有序元素列比较，比较至当前位置的前一项比待排序大，比后一项小时，进行插入操作，直至比较完整个元素列。</p>
+<p>#插入排序<br>插入排序，是讲待排序的元素插入到已排好序的元素列中，其思想与冒泡排序类似，我们从元素列的第二项开始与第一项比较，排好序后，取第三项进行比较，排序，再取第四项，以此类推，把每一项与前面的有序元素列比较，比较至当前位置的前一项比待排序大，比后一项小时，进行插入操作，直至比较完整个元素列。</p>
 <p>平均时间复杂度： O(n2)</p>
-<p>核心代码：</p>
-<p> for (int i = 1,l = numArr.length ; i<l ;i++){ for (int j="i;j">0;j–){<br>                if (numArr[i] &lt; numArr[j-1]){<br>                    int tem = numArr[j-1];<br>                    numArr[j-1] = numArr[i];<br>                    numArr[i] = tem;<br>                }<br>            }<br>        }</l></p>
+<p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 1,l = numArr.length ; i&lt;l ;i++)&#123;</span><br><span class="line">           for (int j=i;j&gt;0;j--)&#123;</span><br><span class="line">               if (numArr[i] &lt; numArr[j-1])&#123;</span><br><span class="line">                   int tem = numArr[j-1];</span><br><span class="line">                   numArr[j-1] = numArr[i];</span><br><span class="line">                   numArr[i] = tem;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
 <p>插入排序也没有相等元素的交换位置，故也是一种稳定的排序算法。</p>
-<p>选择排序<br>选择排序的思想是，在每一趟从待排序的元素列中选择最小（或最大）的一个元素作为首元素，然后去除当前元素，在剩下的元素找到最小（或最大）的元素作为剩下元素列的首元素，直到所有元素排完为止。</p>
+<p>#选择排序<br>选择排序的思想是，在每一趟从待排序的元素列中选择最小（或最大）的一个元素作为首元素，然后去除当前元素，在剩下的元素找到最小（或最大）的元素作为剩下元素列的首元素，直到所有元素排完为止。</p>
 <p>平均时间复杂度： O(n2)</p>
-<p>核心代码：</p>
-<p>for (int i = 0;i&lt;numArr.length;i++){<br>            minIndex = i;<br>            for (int j = i+1;j&lt;len-1;j++){<br>                if (numArr[minIndex]&gt;numArr[j]){<br>                    minIndex = j;<br>                }<br>            }<br>            int tem = numArr[i];<br>            numArr[i] = numArr[minIndex];<br>            numArr[minIndex] =tem;<br>        }</p>
+<p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0;i&lt;numArr.length;i++)&#123;</span><br><span class="line">            minIndex = i;</span><br><span class="line">            for (int j = i+1;j&lt;len-1;j++)&#123;</span><br><span class="line">                if (numArr[minIndex]&gt;numArr[j])&#123;</span><br><span class="line">                    minIndex = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            int tem = numArr[i];</span><br><span class="line">            numArr[i] = numArr[minIndex];</span><br><span class="line">            numArr[minIndex] =tem;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
 <p>相比于冒泡排序和插入排序，选择排序不同之处在于多了一个最小值的索引，来定位最小值所在位置，来与首元素进行交换。</p>
 <p>正因涉及到元素的交换，移动了顺序，显然，选择排序不是一种稳定的排序算法。</p>
-<p>快速排序<br>快速排序是对冒泡排序的一种改进，回想冒泡排序，是通过前后元素的不断对比来进行排序，而快速排序的方法更巧妙，通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
+<p>#快速排序<br>快速排序是对冒泡排序的一种改进，回想冒泡排序，是通过前后元素的不断对比来进行排序，而快速排序的方法更巧妙，通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
 <p>平均时间复杂度：θ(nlogn)</p>
-<p>核心代码：</p>
-<p>public void sort(int[] intArr,int low,int high){<br>        int l = low,h = high;<br>        int povit = intArr[low];<br>        while (l &lt; h){<br>            while (l&lt; h &amp;&amp; intArr[h] &gt;= povit){<br>                h–;<br>            }<br>            while (l&lt;h &amp;&amp; intArr[l] &lt;= povit){<br>                l++;<br>            }<br>            if (l &lt; h){<br>                int tem = intArr[l];<br>                intArr[l] = intArr[h];<br>                intArr[h] = tem;<br>            }</p>
-<pre><code>    }
-    if (l != low){
-        int tem = intArr[low];
-        intArr[low] = intArr[l];
-        intArr[l] = tem;
-    }
-    if (low &lt; l-1){
-        sort(intArr,low,l-1);
-    }
-    if (h+1 &lt;high){
-        sort(intArr,h+1,high);
-    }
-
-}
-</code></pre><p>快速排序是一种不稳定的排序算法。</p>
+<p>核心代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public void sort(int[] intArr,int low,int high)&#123;</span><br><span class="line">        int l = low,h = high;</span><br><span class="line">        int povit = intArr[low];</span><br><span class="line">        while (l &lt; h)&#123;</span><br><span class="line">            while (l&lt; h &amp;&amp; intArr[h] &gt;= povit)&#123;</span><br><span class="line">                h--;</span><br><span class="line">            &#125;</span><br><span class="line">            while (l&lt;h &amp;&amp; intArr[l] &lt;= povit)&#123;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">            if (l &lt; h)&#123;</span><br><span class="line">                int tem = intArr[l];</span><br><span class="line">                intArr[l] = intArr[h];</span><br><span class="line">                intArr[h] = tem;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        if (l != low)&#123;</span><br><span class="line">            int tem = intArr[low];</span><br><span class="line">            intArr[low] = intArr[l];</span><br><span class="line">            intArr[l] = tem;</span><br><span class="line">        &#125;</span><br><span class="line">        if (low &lt; l-1)&#123;</span><br><span class="line">            sort(intArr,low,l-1);</span><br><span class="line">        &#125;</span><br><span class="line">        if (h+1 &lt;high)&#123;</span><br><span class="line">            sort(intArr,h+1,high);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>快速排序是一种不稳定的排序算法。</p>
 
           
         
