@@ -320,7 +320,7 @@
       
         
           <h1 id="LinkedHashMap解析"><a href="#LinkedHashMap解析" class="headerlink" title="LinkedHashMap解析"></a>LinkedHashMap解析</h1><p>本文基于jdk1.8版本展开。LinkedHashMap继承于HashMap，不过在HashMap的基础上做到了插入有序，具体我们来看它是如何实现的吧。</p>
-<h2 id="存储结构："><a href="#存储结构：" class="headerlink" title="存储结构："></a>存储结构：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class LinkedHashMap&lt;K,V&gt; extends HashMap&lt;K,V&gt; implements Map&lt;K,V&gt;&#123;</span><br><span class="line">static class Entry&lt;K,V&gt; extends HashMap.Node&lt;K,V&gt; &#123;</span><br><span class="line">    	//增加两个指针，支持双向链表</span><br><span class="line">        Entry&lt;K,V&gt; before, after;</span><br><span class="line">        Entry(int hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">            super(hash, key, value, next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //全局双向链表头指针</span><br><span class="line">    transient LinkedHashMap.Entry&lt;K,V&gt; head;</span><br><span class="line">    //全局双向链表尾指针</span><br><span class="line">    transient LinkedHashMap.Entry&lt;K,V&gt; tail;</span><br><span class="line">    //访问形式 顺序/LRU 默认顺序</span><br><span class="line">    final boolean accessOrder;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="存储结构："><a href="#存储结构：" class="headerlink" title="存储结构："></a>存储结构：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedHashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">HashMap</span>.<span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    	<span class="comment">//增加两个指针，支持双向链表</span></span><br><span class="line">        Entry&lt;K,V&gt; before, after;</span><br><span class="line">        Entry(<span class="keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">            <span class="keyword">super</span>(hash, key, value, next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//全局双向链表头指针</span></span><br><span class="line">    <span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; head;</span><br><span class="line">    <span class="comment">//全局双向链表尾指针</span></span><br><span class="line">    <span class="keyword">transient</span> LinkedHashMap.Entry&lt;K,V&gt; tail;</span><br><span class="line">    <span class="comment">//访问形式 顺序/LRU 默认顺序</span></span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">boolean</span> accessOrder;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/04/30/linkedHashMap/#more" rel="contents">
@@ -569,7 +569,7 @@
       
         
           <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>冒泡排序，顾名思义，就像鱼从水底吐泡泡一样， 泡泡是从底逐渐浮到水面的，且升到水面的泡泡是最大的。故，冒泡排序的思想是比较两个相邻元素，选出较大的元素，放至后方，再与下一个相邻的元素进行比较，依次比较，直至比较完整个要排序的元素列，这样下来的话，元素列末尾的元素是最大的。我们将最大的元素排除在外，再针对所有的元素进行上述比较，则第二大的元素也被找出来了，以此类推，最终的元素列为递增序列。</p>
-<p>平均时间复杂度： O(n2)<br>
+<p>平均时间复杂度： O(n2)<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/04/29/排序算法/#more" rel="contents">
@@ -579,7 +579,7 @@
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
     
     
     
