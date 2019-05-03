@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="cjcccccc">
 <meta property="og:description" content="什么是类加载再谈类加载机制前，我们先来谈谈什么是类加载。如果我们不借助IDE(Integrated Development Enviroment)，我们通常会在命令行界面先输入javac .java命令来编译一个.java文件，javac编译后会在当前目录生成.class文件，而类的加载就是将类的.class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个java">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-03T02:07:27.418Z">
+<meta property="og:updated_time" content="2019-05-03T02:19:22.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类加载机制浅谈">
 <meta name="twitter:description" content="什么是类加载再谈类加载机制前，我们先来谈谈什么是类加载。如果我们不借助IDE(Integrated Development Enviroment)，我们通常会在命令行界面先输入javac .java命令来编译一个.java文件，javac编译后会在当前目录生成.class文件，而类的加载就是将类的.class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个java">
@@ -320,7 +320,7 @@
       
 
       
-        <h1 id="什么是类加载"><a href="#什么是类加载" class="headerlink" title="什么是类加载"></a>什么是类加载</h1><p>再谈类加载机制前，我们先来谈谈什么是类加载。如果我们不借助IDE(Integrated Development Enviroment)，我们通常会在命令行界面先输入javac .java命令来编译一个.java文件，javac编译后会在当前目录生成.class文件，而类的加载就是将类的.class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个java.lang.Class对象，用来封装类在方法区内的数据结构。类的加载的最终产品是位于堆区中的Class对象，Class对象封装了类在方法区内的数据结构，并且向Java程序员提供了访问方法区内的数据结构的接口。</p>
+        <h1 id="什么是类加载"><a href="#什么是类加载" class="headerlink" title="什么是类加载"></a>什么是类加载</h1><p>再谈类加载机制前，我们先来谈谈什么是类加载。如果我们不借助IDE(Integrated Development Enviroment)，我们通常会在命令行界面先输入javac .java命令来编译一个.java文件，javac编译后会在当前目录生成.class文件，而类的加载就是将类的.class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法区内，然后在堆区创建一个java.lang.Class对象，用来封装类在方法区内的数据结构。类的加载的最终产品是位于堆区中的Class对象，Class对象封装了类在方法区内的数据结构，并且向Java程序员提供了访问方法区内的数据结构的接口。<br><a id="more"></a></p>
 <h1 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h1><p>上文提到了运行时数据区，我们来谈谈它。在JVM运行时，内存区域会被划为为程序计数器、虚拟机栈，本地方法栈，堆区，方法区，直接内存。</p>
 <h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p>线程私有，程序计数器里存放在是当前线程正在执行的字节码指令的行号，也可以说是位置。</p>
 <h2 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h2><p>线程私有，一个线程对应了一个虚拟机栈，栈的生命周期与线程的生命周期一致，当Java方法被调用时，会在栈内生成栈帧，栈帧里保存着当前java方法的信息：局部变量表、操作数栈、动态链接、方法返回出口信息。局部变量表存放着java八大基础类型：byte、boolean、char、short、int、long、float、double,以及对象的引用。</p>
