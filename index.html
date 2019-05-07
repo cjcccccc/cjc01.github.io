@@ -249,6 +249,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/sychronized解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CjC">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cjcccccc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/07/sychronized解析/" itemprop="url">synchronized解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-07T16:22:35+08:00">
+                2019-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="synchronized解析"><a href="#synchronized解析" class="headerlink" title="synchronized解析"></a>synchronized解析</h1><p>synchronized是java的一个关键字，它可以把任何的一个非null对象当作锁。它属于独占式的悲观锁，也属于重入锁。悲观锁是一种锁策略，即进行某种操作时，悲观的认为在多线程条件下，会发生错误。而重入锁，其实是一种递归锁，即在方法体内递归的获得锁，这是被允许的。</p>
+<h2 id="synchronized作用范围"><a href="#synchronized作用范围" class="headerlink" title="synchronized作用范围"></a>synchronized作用范围</h2><p>synchronized修饰非static方法时，锁定的是当前对象的实例，即另起一个对象实例时，该对象与之前对象用的不是同一把锁。</p>
+<p>synchronized修饰static方法时，锁定的是类对象，所有想访问该方法的对象，都必须去竞争同一把锁。</p>
+<p>synchronized修饰同步代码块时，会锁住以synchrnized后面所跟对象的实例，即所有以该对象为锁的代码块。</p>
+<h2 id="synchronized组件"><a href="#synchronized组件" class="headerlink" title="synchronized组件"></a>synchronized组件</h2><p><img src="/2019/05/07/sychronized解析/timg.jpg" alt="synchronized"></p>
+<ul>
+<li>Wait Set： 所有在同步代码块中调用wait方法的线程都会被放入到Wait Set当中。</li>
+</ul>
+<ul>
+<li>Contension Set:竞争队列，synchronized是非公平锁，当一个线程发起锁请求时，会进行自旋操作去尝试获得锁，如果获取不到，就进入该队列。</li>
+</ul>
+<ul>
+<li>Entry Set: Contension Set中有资格成为候选线程的，会选取部分进入到Entry Set，之所以另起Entry Set,主要是为了减小高并发场景下对Contension Set进行CAS访问的压力。</li>
+</ul>
+<ul>
+<li>OnDeck： 能够竞争锁资源的线程会放入到OnDeck中。</li>
+</ul>
+<ul>
+<li>Owner： 锁拥有者线程</li>
+</ul>
+<ul>
+<li>!Owner： 当前释放锁的线程</li>
+</ul>
+<h1 id="与ReentrantLock异同"><a href="#与ReentrantLock异同" class="headerlink" title="与ReentrantLock异同"></a>与ReentrantLock异同</h1><ul>
+<li>synchronized是隐式锁，即不用显示的指定它的加锁位置与解锁位置。而ReentrantLock是显式锁，需要用Lock方法或者tryLock方法进行加锁，在Finally方法中用unlock()方法进行释放。</li>
+</ul>
+<ul>
+<li>synchronized是非公平锁。而ReentrantLock有公平锁和非公平锁两种实现方式，默认是非公平锁。</li>
+</ul>
+<ul>
+<li>ReetrantLock支持中断。synchronized不支持中断。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/类加载机制浅谈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -906,7 +1057,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

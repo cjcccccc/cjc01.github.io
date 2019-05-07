@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="lock,">
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="synchronized解析synchronized是java的一个关键字，它可以把任何的一个非null对象当作锁。它属于独占式的悲观锁，也属于重入锁。悲观锁是一种锁策略，即进行某种操作时，悲观的认为在多线程条件下，会发生错误。而重入锁，其实是一种递归锁，即在方法体内递归的获得锁，这是被允许的。 synchronized作用范围synchronized修饰非static方法时，锁定的是当前对象的实">
+<meta name="keywords" content="lock">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/04/24/hello-world/index.html">
+<meta property="og:title" content="synchronized解析">
+<meta property="og:url" content="http://yoursite.com/2019/05/07/sychronized解析/index.html">
 <meta property="og:site_name" content="cjcccccc">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="synchronized解析synchronized是java的一个关键字，它可以把任何的一个非null对象当作锁。它属于独占式的悲观锁，也属于重入锁。悲观锁是一种锁策略，即进行某种操作时，悲观的认为在多线程条件下，会发生错误。而重入锁，其实是一种递归锁，即在方法体内递归的获得锁，这是被允许的。 synchronized作用范围synchronized修饰非static方法时，锁定的是当前对象的实">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-29T12:01:51.760Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/07/sychronized解析/timg.jpg">
+<meta property="og:updated_time" content="2019-05-07T11:32:18.562Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="synchronized解析">
+<meta name="twitter:description" content="synchronized解析synchronized是java的一个关键字，它可以把任何的一个非null对象当作锁。它属于独占式的悲观锁，也属于重入锁。悲观锁是一种锁策略，即进行某种操作时，悲观的认为在多线程条件下，会发生错误。而重入锁，其实是一种递归锁，即在方法体内递归的获得锁，这是被允许的。 synchronized作用范围synchronized修饰非static方法时，锁定的是当前对象的实">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/07/sychronized解析/timg.jpg">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/24/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/07/sychronized解析/">
 
 
 
 
 
-  <title>Hello World | cjcccccc</title>
+  <title>synchronized解析 | cjcccccc</title>
   
 
 
@@ -252,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/sychronized解析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CjC">
@@ -269,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">synchronized解析</h1>
         
 
         <div class="post-meta">
@@ -281,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-24T14:27:41+08:00">
-                2019-04-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-07T16:22:35+08:00">
+                2019-05-07
               </time>
             
 
@@ -319,15 +322,38 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a><br><a id="more"></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="synchronized解析"><a href="#synchronized解析" class="headerlink" title="synchronized解析"></a>synchronized解析</h1><p>synchronized是java的一个关键字，它可以把任何的一个非null对象当作锁。它属于独占式的悲观锁，也属于重入锁。悲观锁是一种锁策略，即进行某种操作时，悲观的认为在多线程条件下，会发生错误。而重入锁，其实是一种递归锁，即在方法体内递归的获得锁，这是被允许的。</p>
+<h2 id="synchronized作用范围"><a href="#synchronized作用范围" class="headerlink" title="synchronized作用范围"></a>synchronized作用范围</h2><p>synchronized修饰非static方法时，锁定的是当前对象的实例，即另起一个对象实例时，该对象与之前对象用的不是同一把锁。</p>
+<p>synchronized修饰static方法时，锁定的是类对象，所有想访问该方法的对象，都必须去竞争同一把锁。</p>
+<p>synchronized修饰同步代码块时，会锁住以synchrnized后面所跟对象的实例，即所有以该对象为锁的代码块。</p>
+<h2 id="synchronized组件"><a href="#synchronized组件" class="headerlink" title="synchronized组件"></a>synchronized组件</h2><p><img src="/2019/05/07/sychronized解析/timg.jpg" alt="synchronized"></p>
+<ul>
+<li>Wait Set： 所有在同步代码块中调用wait方法的线程都会被放入到Wait Set当中。</li>
+</ul>
+<ul>
+<li>Contension Set:竞争队列，synchronized是非公平锁，当一个线程发起锁请求时，会进行自旋操作去尝试获得锁，如果获取不到，就进入该队列。</li>
+</ul>
+<ul>
+<li>Entry Set: Contension Set中有资格成为候选线程的，会选取部分进入到Entry Set，之所以另起Entry Set,主要是为了减小高并发场景下对Contension Set进行CAS访问的压力。</li>
+</ul>
+<ul>
+<li>OnDeck： 能够竞争锁资源的线程会放入到OnDeck中。</li>
+</ul>
+<ul>
+<li>Owner： 锁拥有者线程</li>
+</ul>
+<ul>
+<li>!Owner： 当前释放锁的线程</li>
+</ul>
+<h1 id="与ReentrantLock异同"><a href="#与ReentrantLock异同" class="headerlink" title="与ReentrantLock异同"></a>与ReentrantLock异同</h1><ul>
+<li>synchronized是隐式锁，即不用显示的指定它的加锁位置与解锁位置。而ReentrantLock是显式锁，需要用Lock方法或者tryLock方法进行加锁，在Finally方法中用unlock()方法进行释放。</li>
+</ul>
+<ul>
+<li>synchronized是非公平锁。而ReentrantLock有公平锁和非公平锁两种实现方式，默认是非公平锁。</li>
+</ul>
+<ul>
+<li>ReetrantLock支持中断。synchronized不支持中断。</li>
+</ul>
 
       
     </div>
@@ -343,6 +369,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/lock/" rel="tag"># lock</a>
+          
+        </div>
+      
 
       
       
@@ -352,15 +384,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/01/类加载机制浅谈/" rel="next" title="类加载机制浅谈">
+                <i class="fa fa-chevron-left"></i> 类加载机制浅谈
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/29/排序算法/" rel="prev" title="排序算法">
-                排序算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -483,7 +515,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#synchronized解析"><span class="nav-number">1.</span> <span class="nav-text">synchronized解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#synchronized作用范围"><span class="nav-number">1.1.</span> <span class="nav-text">synchronized作用范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#synchronized组件"><span class="nav-number">1.2.</span> <span class="nav-text">synchronized组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与ReentrantLock异同"><span class="nav-number">2.</span> <span class="nav-text">与ReentrantLock异同</span></a></li></ol></div>
             
 
           </div>
