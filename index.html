@@ -249,6 +249,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/InnoDB浅谈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CjC">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cjcccccc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/08/InnoDB浅谈/" itemprop="url">InnoDB浅谈</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T10:17:35+08:00">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="InnoDB体系结构"><a href="#InnoDB体系结构" class="headerlink" title="InnoDB体系结构"></a>InnoDB体系结构</h1><p><img src="/2019/05/08/InnoDB浅谈/1.png" alt="architecture"></p>
+<p>InnoDB存储引擎主要由两部分组成：后台线程、内存池。</p>
+<ul>
+<li>后台线程的主要作用是负责刷新内存池中的数据，以保证内存池中的数据是最近的，将已修改的数据文件刷新到磁盘文件，同时保证数据库发生异常时，InnoDB能恢复到正常的运行状态。</li>
+</ul>
+<ul>
+<li>内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU比之内存，是很慢的，差了很大的量级），方便快速读取，并将对磁盘文件的修改进行缓存，重做日志缓冲（redo log）。</li>
+</ul>
+<h2 id="后台线程"><a href="#后台线程" class="headerlink" title="后台线程"></a>后台线程</h2><p>InnoDB是多线程的存储结构，其后台有多个后台线程，负责处理不同的任务。</p>
+<ul>
+<li>Master Thread<br>Master Thread是非常核心的后台线程，它的主要作用是将缓冲页中的数据异步刷新回磁盘文件中，保证数据的一致性，包括脏页刷新、合并插入缓冲、对undo页进行回收）。</li>
+</ul>
+<ul>
+<li>IO Thread</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/sychronized解析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1057,7 +1191,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1070,7 +1204,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

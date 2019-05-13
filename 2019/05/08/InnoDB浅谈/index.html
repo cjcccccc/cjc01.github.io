@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="database,">
 
 
 
@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="cjcccccc">
-<meta property="og:url" content="http://yoursite.com/archives/2019/05/index.html">
+<meta name="description" content="InnoDB体系结构 InnoDB存储引擎主要由两部分组成：后台线程、内存池。  后台线程的主要作用是负责刷新内存池中的数据，以保证内存池中的数据是最近的，将已修改的数据文件刷新到磁盘文件，同时保证数据库发生异常时，InnoDB能恢复到正常的运行状态。   内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU">
+<meta name="keywords" content="database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="InnoDB浅谈">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/InnoDB浅谈/index.html">
 <meta property="og:site_name" content="cjcccccc">
+<meta property="og:description" content="InnoDB体系结构 InnoDB存储引擎主要由两部分组成：后台线程、内存池。  后台线程的主要作用是负责刷新内存池中的数据，以保证内存池中的数据是最近的，将已修改的数据文件刷新到磁盘文件，同时保证数据库发生异常时，InnoDB能恢复到正常的运行状态。   内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/05/08/InnoDB浅谈/1.png">
+<meta property="og:updated_time" content="2019-05-08T02:38:16.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cjcccccc">
+<meta name="twitter:title" content="InnoDB浅谈">
+<meta name="twitter:description" content="InnoDB体系结构 InnoDB存储引擎主要由两部分组成：后台线程、内存池。  后台线程的主要作用是负责刷新内存池中的数据，以保证内存池中的数据是最近的，将已修改的数据文件刷新到磁盘文件，同时保证数据库发生异常时，InnoDB能恢复到正常的运行状态。   内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/08/InnoDB浅谈/1.png">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/05/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/08/InnoDB浅谈/">
 
 
 
 
 
-  <title>Archive | cjcccccc</title>
+  <title>InnoDB浅谈 | cjcccccc</title>
   
 
 
@@ -140,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,142 +241,161 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/InnoDB浅谈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CjC">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="cjcccccc">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">InnoDB浅谈</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T10:17:35+08:00">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 7 posts in total. Keep on posting.
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/08/InnoDB浅谈/" itemprop="url">
-              
-                <span itemprop="name">InnoDB浅谈</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-08T10:17:35+08:00" content="2019-05-08">
-          05-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/07/sychronized解析/" itemprop="url">
-              
-                <span itemprop="name">synchronized解析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-07T16:22:35+08:00" content="2019-05-07">
-          05-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/01/类加载机制浅谈/" itemprop="url">
-              
-                <span itemprop="name">类加载机制浅谈</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-01T18:15:35+08:00" content="2019-05-01">
-          05-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="InnoDB体系结构"><a href="#InnoDB体系结构" class="headerlink" title="InnoDB体系结构"></a>InnoDB体系结构</h1><p><img src="/2019/05/08/InnoDB浅谈/1.png" alt="architecture"></p>
+<p>InnoDB存储引擎主要由两部分组成：后台线程、内存池。</p>
+<ul>
+<li>后台线程的主要作用是负责刷新内存池中的数据，以保证内存池中的数据是最近的，将已修改的数据文件刷新到磁盘文件，同时保证数据库发生异常时，InnoDB能恢复到正常的运行状态。</li>
+</ul>
+<ul>
+<li>内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU比之内存，是很慢的，差了很大的量级），方便快速读取，并将对磁盘文件的修改进行缓存，重做日志缓冲（redo log）。</li>
+</ul>
+<h2 id="后台线程"><a href="#后台线程" class="headerlink" title="后台线程"></a>后台线程</h2><p>InnoDB是多线程的存储结构，其后台有多个后台线程，负责处理不同的任务。</p>
+<ul>
+<li>Master Thread<br>Master Thread是非常核心的后台线程，它的主要作用是将缓冲页中的数据异步刷新回磁盘文件中，保证数据的一致性，包括脏页刷新、合并插入缓冲、对undo页进行回收）。</li>
+</ul>
+<ul>
+<li>IO Thread</li>
+</ul>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/database/" rel="tag"># database</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/07/sychronized解析/" rel="next" title="synchronized解析">
+                <i class="fa fa-chevron-left"></i> synchronized解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -377,6 +403,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -397,8 +427,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -449,6 +488,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#InnoDB体系结构"><span class="nav-number">1.</span> <span class="nav-text">InnoDB体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台线程"><span class="nav-number">1.1.</span> <span class="nav-text">后台线程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -589,6 +644,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
