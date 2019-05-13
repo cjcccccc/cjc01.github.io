@@ -88,7 +88,8 @@
 <meta property="og:description" content="InnoDB体系结构 InnoDB存储引擎主要由两部分组成：后台线程、内存池。  后台线程的主要作用是负责刷新内存池中的数据，以保证内存池中的数据是最近的，将已修改的数据文件刷新到磁盘文件，同时保证数据库发生异常时，InnoDB能恢复到正常的运行状态。   内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/05/08/InnoDB浅谈/1.png">
-<meta property="og:updated_time" content="2019-05-08T02:38:16.789Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/08/InnoDB浅谈/2.png">
+<meta property="og:updated_time" content="2019-05-13T09:43:34.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InnoDB浅谈">
 <meta name="twitter:description" content="InnoDB体系结构 InnoDB存储引擎主要由两部分组成：后台线程、内存池。  后台线程的主要作用是负责刷新内存池中的数据，以保证内存池中的数据是最近的，将已修改的数据文件刷新到磁盘文件，同时保证数据库发生异常时，InnoDB能恢复到正常的运行状态。   内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU">
@@ -328,15 +329,42 @@
 <li>后台线程的主要作用是负责刷新内存池中的数据，以保证内存池中的数据是最近的，将已修改的数据文件刷新到磁盘文件，同时保证数据库发生异常时，InnoDB能恢复到正常的运行状态。</li>
 </ul>
 <ul>
-<li>内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU比之内存，是很慢的，差了很大的量级），方便快速读取，并将对磁盘文件的修改进行缓存，重做日志缓冲（redo log）。</li>
+<li>内存池中有许多的内存块，内存池的作用在于：维护进程或线程访问的内部数据结构（如数据页），缓存从磁盘上查询过来的数据（访问磁盘的速度相对于CPU比之内存，是很慢的，差了很大的量级），方便快速读取，并将对磁盘文件的修改进行缓存，重做日志缓冲（redo log）。<a id="more"></a>
+</li>
 </ul>
 <h2 id="后台线程"><a href="#后台线程" class="headerlink" title="后台线程"></a>后台线程</h2><p>InnoDB是多线程的存储结构，其后台有多个后台线程，负责处理不同的任务。</p>
 <ul>
-<li>Master Thread<br>Master Thread是非常核心的后台线程，它的主要作用是将缓冲页中的数据异步刷新回磁盘文件中，保证数据的一致性，包括脏页刷新、合并插入缓冲、对undo页进行回收）。</li>
+<li>Master Thread:<br>Master Thread是非常核心的后台线程，它的主要作用是将缓冲页中的数据异步刷新回磁盘文件中，保证数据的一致性，包括脏页刷新、合并插入缓冲、对undo页进行回收）。</li>
 </ul>
 <ul>
-<li>IO Thread</li>
+<li>IO Thread:<br>InnoDB存储引擎使用了大量的AIO来处理写IO请求，这样可以极大的提高数据库的性能。IO Thread工作主要是负责这些IO请求的回调。</li>
 </ul>
+<ul>
+<li>Purge Thread：<br>当事务被提交后，其所使用的Undo Log日志就不再被需要了，因此需要Purge Thread对已经使用并分配的Undo页进行回收。</li>
+</ul>
+<h2 id="内存池"><a href="#内存池" class="headerlink" title="内存池"></a>内存池</h2><p><img src="/2019/05/08/InnoDB浅谈/2.png" alt="memory"></p>
+<h3 id="缓冲池"><a href="#缓冲池" class="headerlink" title="缓冲池"></a>缓冲池</h3><p>InnoDB引擎是基于磁盘存储的，并将其中的记录按照页的方式进行管理。由于CPU速度与磁盘读写速度的鸿沟，基于磁盘的数据库系统使用缓冲池来提高数据库的整体性能。<br>顺带提一句，磁盘是块设备，即操作系统中能够随机访问数据块的硬件设备。像我们常用的键盘鼠标是强调先后顺序的，这种设备称为字符流设备。块设备的最小寻址单元为扇区，许多的块设备能一次对多个扇区进行操作，扇区大小不会超过内存页的大小。<br>在数据库中读取页的操作，首先会将从磁盘中读取到的页放入到缓冲池中，待下一次读取相同页时，会直接从缓冲池中读取，而不会再访问磁盘，这称为缓冲命中。对于数据库页的修改操作，会先修改缓冲池中的页，再以一定频率刷新回磁盘（通过checkpoint机制，这类似于Jvm中进行垃圾回收时选择的safepoint）。<br>缓冲池中缓存的数据页类型有：数据页，索引页，插入缓冲，自适应哈希索引，锁信息，数据字典信息。</p>
+<h3 id="redo日志缓冲"><a href="#redo日志缓冲" class="headerlink" title="redo日志缓冲"></a>redo日志缓冲</h3><p>InnoDB引擎会首先将重做日志的信息放入到此缓冲区中，再以一定的频率刷新回重做日志文件。重做日志缓冲不需要设置的很大，一般每一秒钟都会将重做日志缓冲刷新回重做日志。</p>
+<h2 id="InnoDB的关键特性"><a href="#InnoDB的关键特性" class="headerlink" title="InnoDB的关键特性"></a>InnoDB的关键特性</h2><ul>
+<li>插入缓冲</li>
+</ul>
+<ul>
+<li>两次写</li>
+</ul>
+<ul>
+<li>自适应哈希索引</li>
+</ul>
+<ul>
+<li>异步IO</li>
+</ul>
+<ul>
+<li>刷新邻近页</li>
+</ul>
+<h3 id="插入缓冲"><a href="#插入缓冲" class="headerlink" title="插入缓冲"></a>插入缓冲</h3><p>在提Insert buffer之前，我们先提一下聚集索引：聚集索引是指数据库表行中数据的物理顺序与键值的逻辑（索引）顺序相同，一个表只能有一个聚集索引。<br>Insert Buffer，对于非聚集索引的插入或更新操作，不是每一次都直接插入到索引页中，而是先判断该索引页是否在缓冲池中，若在，则直接插入，若不在，则插入到insert buffer中，再以一定的频率将buffer与索引页进行合并操作，这么做的原因是：磁盘是随机访问设备，当每次都将插入更新操作刷新回磁盘，代价是相当高的，而放入到buffer中，一定时间后刷新回提升性能，因为有很多操作都发生在一个索引页内。</p>
+<h3 id="两次写"><a href="#两次写" class="headerlink" title="两次写"></a>两次写</h3><p>double write主要提升了数据页的可靠性。当发生数据库宕机时，可能InnoDB引擎正将某个脏页刷新到磁盘中，而这个页只写了一部分，这种情况称为部分写失效。<br>double write由两部分组成，一部分是内存中的doublewrite buffer，一部分是物理磁盘上共享表空间的连续的128个页。在对缓冲区中的脏页进行刷新时，并不直接刷新回磁盘，而是通过memcpy函数将脏页复制到内存中的doublewrite buffer，之后通过buffer分两次顺序的写入物理的共享表空间内，然后立即调用fsync,同步磁盘。</p>
+<h3 id="自适应哈希索引"><a href="#自适应哈希索引" class="headerlink" title="自适应哈希索引"></a>自适应哈希索引</h3><p>InnoDB存储引擎会监控对表上各索引页的查询。如果发现建立哈希索引会带来速度提升，则会建立哈希索引。</p>
+<h3 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h3><p>AIO是为了提高磁盘的操作性能。同步IO在每进行一次IO操作时，都需要等待此操作结束才能继续接下来的操作。而AIO可以连续的发出IO操作，而不用等操作完成返回，当全部IO操作发出完毕后，再等待所有的IO操作返回。AIO可以进行IO merge操作，如当分次查询磁盘区内的多个连续页时，会合并为一次查询，再返回结果。</p>
+<h3 id="刷新邻近页"><a href="#刷新邻近页" class="headerlink" title="刷新邻近页"></a>刷新邻近页</h3><p>InnoDB引擎再刷新一个脏页时，会检测该页所在区的所有页，如果是脏页，则一并进行。这么做的优势在于可以与AIO进行协同操作，将多个IO写merge为一个。</p>
 
       
     </div>
@@ -498,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#InnoDB体系结构"><span class="nav-number">1.</span> <span class="nav-text">InnoDB体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台线程"><span class="nav-number">1.1.</span> <span class="nav-text">后台线程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#InnoDB体系结构"><span class="nav-number">1.</span> <span class="nav-text">InnoDB体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后台线程"><span class="nav-number">1.1.</span> <span class="nav-text">后台线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存池"><span class="nav-number">1.2.</span> <span class="nav-text">内存池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓冲池"><span class="nav-number">1.2.1.</span> <span class="nav-text">缓冲池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redo日志缓冲"><span class="nav-number">1.2.2.</span> <span class="nav-text">redo日志缓冲</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InnoDB的关键特性"><span class="nav-number">1.3.</span> <span class="nav-text">InnoDB的关键特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入缓冲"><span class="nav-number">1.3.1.</span> <span class="nav-text">插入缓冲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两次写"><span class="nav-number">1.3.2.</span> <span class="nav-text">两次写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应哈希索引"><span class="nav-number">1.3.3.</span> <span class="nav-text">自适应哈希索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步IO"><span class="nav-number">1.3.4.</span> <span class="nav-text">异步IO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刷新邻近页"><span class="nav-number">1.3.5.</span> <span class="nav-text">刷新邻近页</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
